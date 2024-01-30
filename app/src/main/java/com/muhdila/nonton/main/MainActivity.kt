@@ -1,5 +1,6 @@
 package com.muhdila.nonton.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.enableEdgeToEdge
@@ -11,6 +12,7 @@ import com.muhdila.core.data.source.Resource
 import com.muhdila.core.ui.ListMovieAdapter
 import com.muhdila.nonton.R
 import com.muhdila.nonton.databinding.ActivityMainBinding
+import com.muhdila.nonton.detail.DetailActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
@@ -30,8 +32,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         val listMovieAdapter = ListMovieAdapter()
-        listMovieAdapter.onItemClick = {
-
+        listMovieAdapter.onItemClick = { movie ->
+            Intent(this, DetailActivity::class.java).also {
+                it.putExtra(DetailActivity.DATA, movie)
+                startActivity(it)
+            }
         }
 
         mainViewModel.getListMovie.observe(this) { listMovie ->
