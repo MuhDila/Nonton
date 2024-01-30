@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Nonton</string>
+    <string name="something_wrong">Oops.. something went wrong</string>
+    <string name="title_favorite">Favorite</string>
+    <string name="search">Search</string>
+    <string name="img_setting">Image Setting</string>
+    <string name="img_fav">Image Favorite</string>
+</resources>
