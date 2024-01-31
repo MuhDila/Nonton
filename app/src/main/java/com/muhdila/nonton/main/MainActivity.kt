@@ -10,8 +10,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.muhdila.core.data.source.Resource
+import com.muhdila.core.domain.model.Movie
 import com.muhdila.core.ui.ListMovieAdapter
 import com.muhdila.nonton.R
 import com.muhdila.nonton.databinding.ActivityMainBinding
@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
 
     private val mainViewModel: MainViewModel by viewModel()
     private lateinit var binding: ActivityMainBinding
+    private val listMovieAdapter = ListMovieAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,7 +44,6 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(Intent.ACTION_VIEW, uri))
         }
 
-        val listMovieAdapter = ListMovieAdapter()
         listMovieAdapter.onItemClick = { movie ->
             Intent(this, DetailActivity::class.java).also {
                 it.putExtra(DetailActivity.DATA, movie)
@@ -52,31 +52,50 @@ class MainActivity : AppCompatActivity() {
         }
 
         mainViewModel.getListMovie.observe(this) { listMovie ->
-            if (listMovie != null) {
-                when (listMovie) {
-                    is Resource.Loading -> binding.progressBar.visibility = View.VISIBLE
-                    is Resource.Success -> {
-                        binding.progressBar.visibility = View.GONE
-                        listMovieAdapter.setData(listMovie.data)
-                    }
-
-                    is Resource.Error -> {
-                        binding.progressBar.visibility = View.GONE
-                        binding.viewError.root.visibility = View.VISIBLE
-                        binding.viewError.tvError.text =
-                            listMovie.message ?: getString(R.string.something_wrong)
-                    }
-
-                    else -> {
-                        // TODO
-                    }
-                }
-            }
+            handleMovieListResult(listMovie, listMovieAdapter)
         }
 
         with(binding.rvMovie) {
             layoutManager = GridLayoutManager(this@MainActivity, 2)
             adapter = listMovieAdapter
+        }
+
+        setupSearchBar()
+    }
+
+    private fun handleMovieListResult(result: Resource<List<Movie>>?, adapter: ListMovieAdapter) {
+        if (result != null) {
+            when (result) {
+                is Resource.Loading -> binding.progressBar.visibility = View.VISIBLE
+                is Resource.Success -> {
+                    binding.progressBar.visibility = View.GONE
+                    adapter.setData(result.data)
+                }
+                is Resource.Error -> {
+                    binding.progressBar.visibility = View.GONE
+                    binding.viewError.root.visibility = View.VISIBLE
+                    binding.viewError.tvError.text =
+                        result.message ?: getString(R.string.something_wrong)
+                }
+            }
+        }
+    }
+
+    // TODO Search
+    private fun setupSearchBar() {
+        val searchBar = binding.layoutSearch.searchBar
+        with(binding) {
+            searchView.setupWithSearchBar(searchBar)
+            searchView
+                .editText
+                .setOnEditorActionListener { _, _, _ ->
+                    val textSearchBar = searchView.text
+                    mainViewModel.searchMovieResult(textSearchBar.toString()).observe(this@MainActivity) { searchResult ->
+                        handleMovieListResult(searchResult, listMovieAdapter)
+                    }
+                    searchView.hide()
+                    true
+                }
         }
     }
 }

@@ -28,8 +28,25 @@ class RemoteDataSource(private val apiService: ApiService) {
         }.flowOn(Dispatchers.IO)
     }
 
+    // TODO Search
+    suspend fun searchMovie(query: String): Flow<ApiResponse<List<MovieResponse>>> {
+        return flow {
+            try {
+                val response = apiService.searchMovie(query = query)
+                val dataArray = response.results
+                if (dataArray?.isNotEmpty() ?: return@flow) {
+                    emit(ApiResponse.Success(response.results))
+                } else {
+                    emit(ApiResponse.Empty)
+                }
+            } catch (e: Exception) {
+                emit(ApiResponse.Error(e.toString()))
+                Log.e("RemoteDataSourceMovies", e.toString())
+            }
+        }.flowOn(Dispatchers.IO)
+    }
+
     companion object {
         const val TAG = "Remote Data Source"
     }
-
 }

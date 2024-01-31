@@ -17,4 +17,5 @@
     <string name="popularity">Popularity</string>
     <string name="overview_movie">Overview Movie</string>
     <string name="popular_movies">Popular Movies</string>
+    <string name="button_back">Button Back</string>
 </resources>

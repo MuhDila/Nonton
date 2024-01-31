@@ -31,6 +31,10 @@ class DetailActivity : AppCompatActivity() {
             insets
         }
 
+        binding.btnBack.setOnClickListener {
+            finish()
+        }
+
         binding.btnPlay.setOnClickListener {
             Toast.makeText(this, "Coming Soon", Toast.LENGTH_SHORT).show()
         }

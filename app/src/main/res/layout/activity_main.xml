@@ -39,7 +39,15 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
+
     </com.google.android.material.appbar.AppBarLayout>
+
+    <com.google.android.material.search.SearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:backgroundTint="@color/onBackground"
+        android:hint="@string/search"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_movie"
