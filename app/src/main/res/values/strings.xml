@@ -5,4 +5,16 @@
     <string name="search">Search</string>
     <string name="img_setting">Image Setting</string>
     <string name="img_fav">Image Favorite</string>
+    <string name="play">Play</string>
+    <string name="download">Download</string>
+    <string name="favorite">Favorite</string>
+    <string name="title_movie">Title Movie</string>
+    <string name="rating_movie">Rating</string>
+    <string name="image_button_favorite">Image Button Favorite</string>
+    <string name="image_poster">Image Poster</string>
+    <string name="image_date">Image Date</string>
+    <string name="release_date">Release Date</string>
+    <string name="popularity">Popularity</string>
+    <string name="overview_movie">Overview Movie</string>
+    <string name="popular_movies">Popular Movies</string>
 </resources>

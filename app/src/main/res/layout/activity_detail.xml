@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/detail"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     tools:context=".detail.DetailActivity">
 
     <ImageView
@@ -13,12 +13,15 @@
         android:layout_height="450dp"
         android:background="@color/black"
         android:scaleType="centerCrop"
-        tools:src="@tools:sample/backgrounds/scenic[8]" />
+        tools:src="@tools:sample/backgrounds/scenic[8]"
+        tools:ignore="MissingConstraints"
+        android:contentDescription="@string/image_poster" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="450dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
 
         <View
             android:layout_width="match_parent"
@@ -37,7 +40,8 @@
         android:layout_width="match_parent"
         android:layout_height="450dp"
         android:gravity="bottom"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -45,17 +49,8 @@
             android:layout_gravity="center_horizontal"
             android:background="@drawable/gradient_bottom_top_bg"
             android:gravity="center"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/genres_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:ellipsize="end"
-                android:maxLines="2"
-                android:text="Action • Explosive • Suspenseful • Exciting • Adventure"
-                android:textSize="12sp" />
+            android:orientation="vertical"
+            tools:ignore="UselessParent">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -63,95 +58,148 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="0dp"
                 android:gravity="center"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                tools:ignore="UselessParent">
 
-                <LinearLayout
-                    android:id="@+id/add_to_list_button"
-                    android:layout_width="80dp"
-                    android:layout_height="wrap_content"
-                    android:background="?selectableItemBackground"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:paddingVertical="8dp">
-
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_add"
-                        app:tint="@color/white" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:text="My List"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <com.google.android.material.card.MaterialCardView
+                <ImageButton
+                    android:backgroundTint="@color/background"
+                    android:id="@+id/icon_favorite"
                     android:layout_width="wrap_content"
-                    android:layout_height="32dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginHorizontal="24dp"
-                    app:cardBackgroundColor="@color/white">
-
-                    <LinearLayout
-                        android:id="@+id/play_button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:orientation="horizontal"
-                        android:paddingHorizontal="12dp">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="24dp"
-                            android:src="@drawable/ic_play"
-                            app:tint="@color/black" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="4dp"
-                            android:text="Play"
-                            android:textColor="@color/black"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-
-                <LinearLayout
-                    android:id="@+id/info_button"
-                    android:layout_width="80dp"
                     android:layout_height="wrap_content"
-                    android:background="?selectableItemBackground"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:paddingVertical="8dp">
+                    android:src="@drawable/ic_fav_outline"
+                    android:background="@color/transparent"
+                    android:layout_marginEnd="16dp"
+                    android:contentDescription="@string/image_button_favorite" />
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="24dp"
-                        android:src="@drawable/ic_info"
-                        app:tint="@color/white" />
+                <Button
+                    android:id="@+id/btn_play"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.Material3.Button.ElevatedButton"
+                    android:text="@string/play"
+                    android:backgroundTint="@color/background"
+                    android:textColor="@color/onBackground"
+                    android:layout_marginBottom="8dp"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:text="Info"
-                        android:textSize="12sp" />
-                </LinearLayout>
+                <Button
+                    style="?attr/materialIconButtonFilledStyle"
+                    android:backgroundTint="@color/background"
+                    android:id="@+id/icon_download"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:icon="@drawable/ic_download"
+                    android:layout_marginStart="16dp"/>
 
 
             </LinearLayout>
-
         </LinearLayout>
-
-
     </LinearLayout>
-</FrameLayout>
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/title_movie"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/background_image"
+        tools:ignore="MissingConstraints" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title"
+        tools:ignore="MissingConstraints">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/materialCardView"
+            android:layout_width="110dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="12dp"
+            app:cardBackgroundColor="@color/yellow"
+            tools:ignore="MissingConstraints">
+
+            <LinearLayout
+                android:id="@+id/play_button"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingHorizontal="12dp">
+
+                <TextView
+                    android:id="@+id/tv_rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="@string/rating_movie"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:contentDescription="@string/image_date"
+            android:src="@drawable/ic_date" />
+
+        <TextView
+            android:id="@+id/tv_release_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="12dp"
+            android:text="@string/release_date" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:contentDescription="@string/image_date"
+            android:src="@drawable/ic_popularity" />
+
+        <TextView
+            android:id="@+id/tv_popularity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="8dp"
+            android:text="@string/popularity" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/img_line"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/image_button_favorite"
+        android:src="@drawable/ic_line"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <TextView
+        android:id="@+id/tv_overview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:justificationMode="inter_word"
+        android:layout_marginTop="4dp"
+        android:layout_marginHorizontal="12dp"
+        android:text="@string/overview_movie"
+        app:layout_constraintTop_toBottomOf="@+id/img_line" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

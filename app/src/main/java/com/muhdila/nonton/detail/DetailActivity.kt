@@ -1,13 +1,17 @@
 package com.muhdila.nonton.detail
 
-import androidx.appcompat.app.AppCompatActivity
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.muhdila.core.domain.model.Movie
+import com.muhdila.nonton.R
 import com.muhdila.nonton.databinding.ActivityDetailBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -27,11 +31,20 @@ class DetailActivity : AppCompatActivity() {
             insets
         }
 
+        binding.btnPlay.setOnClickListener {
+            Toast.makeText(this, "Coming Soon", Toast.LENGTH_SHORT).show()
+        }
+
+        binding.iconDownload.setOnClickListener {
+            Toast.makeText(this, "Coming Soon", Toast.LENGTH_SHORT).show()
+        }
+
         val detailListMovie = intent.getParcelableExtra<Movie>(DATA)
         showDetailListMovie(detailListMovie)
 
     }
 
+    @SuppressLint("SetTextI18n")
     private fun showDetailListMovie(detailListMovie: Movie?) {
         detailListMovie?.let {
             with(binding) {
@@ -40,26 +53,38 @@ class DetailActivity : AppCompatActivity() {
                     .transform(RoundedCorners(20))
                     .into(backgroundImage)
 
-                genresText.text = detailListMovie.vote_average.toString()
+                tvTitle.text = detailListMovie.title
+                tvRating.text = "IMDB ${detailListMovie.vote_average.toString()}"
+                tvReleaseDate.text = detailListMovie.release_date
+                tvPopularity.text = detailListMovie.popularity.toString()
+                tvOverview.text = detailListMovie.overview
 
                 var favStatus = detailListMovie.isFavorite
-//                setStatusFavorite(favStatus)
-//                favoriteButton.setOnClickListener {
-//                    favStatus = !favStatus
-//                    detailViewModel.setFavoriteUserGithub(detailListMovie, favStatus)
-//                    setStatusFavorite(favStatus)
-//                }
+                setStatusFavorite(favStatus)
+
+                iconFavorite.setOnClickListener {
+                    favStatus = !favStatus
+                    detailViewModel.setFavoriteListMovie(detailListMovie, favStatus)
+                    setStatusFavorite(favStatus)
+                    showFavoriteStatusMessage(favStatus)
+                }
+
             }
         }
     }
 
-//    private fun setStatusFavorite(statusFav: Boolean) {
-//        if (statusFav) {
-//            binding.favoriteButton.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_favourite_fill))
-//        } else {
-//            binding.favoriteButton.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_favourite_border))
-//        }
-//    }
+    private fun setStatusFavorite(statusFav: Boolean) {
+        if (statusFav) {
+            binding.iconFavorite.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_fav_filled))
+        } else {
+            binding.iconFavorite.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_fav_outline))
+        }
+    }
+
+    private fun showFavoriteStatusMessage(isFavorite: Boolean) {
+        val message = if (isFavorite) "Added to Favorites" else "Removed from Favorites"
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
 
     companion object {
         const val DATA = "data"

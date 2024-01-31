@@ -1,12 +1,15 @@
 package com.muhdila.nonton.main
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.muhdila.core.data.source.Resource
 import com.muhdila.core.ui.ListMovieAdapter
@@ -29,6 +32,15 @@ class MainActivity : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             view.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+
+        binding.layoutSearch.imgSetting.setOnClickListener {
+            Toast.makeText(this, "Coming Soon", Toast.LENGTH_SHORT).show()
+        }
+
+        binding.layoutSearch.imgFav.setOnClickListener {
+            val uri = Uri.parse("nonton://favorite")
+            startActivity(Intent(Intent.ACTION_VIEW, uri))
         }
 
         val listMovieAdapter = ListMovieAdapter()
@@ -63,7 +75,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         with(binding.rvMovie) {
-            layoutManager = LinearLayoutManager(this@MainActivity)
+            layoutManager = GridLayoutManager(this@MainActivity, 2)
             adapter = listMovieAdapter
         }
     }

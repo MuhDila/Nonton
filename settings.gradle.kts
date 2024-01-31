@@ -22,3 +22,4 @@ dependencyResolutionManagement {
 rootProject.name = "Nonton"
 include(":app")
 include(":core")
+include(":favorite")
