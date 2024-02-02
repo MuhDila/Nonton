@@ -7,8 +7,7 @@ orbs:
 
 jobs:
   build:
-    docker:
-      - image: adoptopenjdk/openjdk17:latest
+    executor: android/android
     steps:
       - checkout
       - restore_cache:
