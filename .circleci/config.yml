@@ -11,7 +11,7 @@ jobs:
           key: android-orb-v1-
       - run:
           name: Accept Android SDK Licenses
-          command: yes | sdkmanager --licenses
+          command: ./sdkmanager.bat --licenses
       - run:
           name: Create local.properties
           command: echo "sdk.dir=$ANDROID_HOME" > local.properties
