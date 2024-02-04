@@ -5,12 +5,13 @@ orbs:
   android: circleci/android@2.4.0
 jobs:
   test:
-    executor:
-      name: android/android-machine
-      resource-class: large
-      tag: 2021.10.1
+    docker:
+      - image: circleci/openjdk:21-jdk
     steps:
       - checkout
+      - run:
+          name: Set Java Home
+          command: echo 'org.gradle.java.home=/usr/local/openjdk-21' >> $HOME/.gradle/gradle.properties
       - restore_cache:
           key: android-orb-v1-
       - run:
