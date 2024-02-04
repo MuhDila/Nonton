@@ -2,7 +2,7 @@
 # Stacks detected: deps:java:.,tool:gradle:
 version: '2.1'
 orbs:
-  android: circleci/android@2.0
+  android: circleci/android@2.4.0
 jobs:
   test:
     executor:
