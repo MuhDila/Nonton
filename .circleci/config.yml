@@ -1,5 +1,3 @@
-# This config was automatically generated from your source code
-# Stacks detected: deps:java:.,tool:gradle:
 version: '2.1'
 orbs:
   android: circleci/android@2.4.0
@@ -23,8 +21,8 @@ jobs:
             - ~/.android/build-cache
             - ~/.android/cache
       - run:
-          name: Set SDK Location
-          command: echo 'sdk.dir=C:\\Users\\muham\\AppData\\Local\\Android\\Sdk' > local.properties
+          name: Create local.properties
+          command: echo 'sdk.dir=/usr/local/android-sdk' > local.properties
       - run:
           name: Run Build
           command: ./gradlew build
