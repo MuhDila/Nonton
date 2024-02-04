@@ -21,9 +21,6 @@ jobs:
             - ~/.android/build-cache
             - ~/.android/cache
       - run:
-          name: Create local.properties
-          command: echo 'sdk.dir=/usr/local/android-sdk' > local.properties
-      - run:
           name: Run Build
           command: ./gradlew build
       - store_artifacts:
