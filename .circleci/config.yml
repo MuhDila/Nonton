@@ -1,8 +1,6 @@
 version: '2.1'
-
 orbs:
-  android: circleci/android@2.5.0
-
+  android: circleci/android@2.4.0
 jobs:
   test:
     docker:
@@ -10,11 +8,11 @@ jobs:
       - image: cimg/android:2024.01
     steps:
       - checkout
-      - android/install-v1:
-          components: "build-tools;34.0.0" "platforms;android-34"
+      - restore_cache:
+          key: android-orb-v1-
       - run:
-          name: Accept Android licenses
-          command: yes | sudo $ANDROID_HOME/tools/bin/sdkmanager --licenses
+          name: Copy SDK License
+          command: printf "8933bad161af4178b1185d1a37fbf41ea5269c55\nd56f5187479451eabf01fb78af6dfcb131a6481e\n24333f8a63b6825ea9c5514f83c2829b004d1fee\n" > ~/android-sdk-linux/licenses/android-sdk-license
       - run:
           name: Create local.properties
           command: echo "sdk.dir=$ANDROID_HOME" > local.properties
@@ -43,11 +41,7 @@ jobs:
       - store_artifacts:
           path: app/build/outputs/apk/debug/
           destination: artifact-file
-
 workflows:
-  version: 2
   test:
     jobs:
-      - android/test-v1:
-          emulator: Nexus_5X_API_34
       - test
