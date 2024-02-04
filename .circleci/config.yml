@@ -11,12 +11,6 @@ jobs:
       - restore_cache:
           key: android-orb-v1-
       - run:
-          name: Create licenses directory
-          command: mkdir -p ~/android-sdk/licenses/
-      - run:
-          name: Copy licenses
-          command: echo y | xargs -I {} cp "licenses/{}" ~/android-sdk/licenses/
-      - run:
           name: Create local.properties
           command: echo "sdk.dir=$ANDROID_HOME" > local.properties
       - run:
