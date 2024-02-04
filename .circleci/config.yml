@@ -6,12 +6,9 @@ orbs:
 jobs:
   test:
     docker:
-      - image: circleci/openjdk:21-jdk
+      - image: cimg/openjdk:21.0.2
     steps:
       - checkout
-      - run:
-          name: Set Java Home
-          command: echo 'org.gradle.java.home=/usr/local/openjdk-21' >> $HOME/.gradle/gradle.properties
       - restore_cache:
           key: android-orb-v1-
       - run:
