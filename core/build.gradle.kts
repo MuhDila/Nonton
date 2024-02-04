@@ -9,7 +9,7 @@ apply(from= "../shared_dependencies.gradle")
 
 android {
     namespace = "com.muhdila.core"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         minSdk = 24
