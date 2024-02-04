@@ -11,11 +11,6 @@ jobs:
       tag: 2021.10.1
     steps:
       - checkout
-      - run:
-          name: Set Java 17
-          command: |
-            sudo update-java-alternatives -s java-17-openjdk-amd64
-            java -version
       - restore_cache:
           key: android-orb-v1-
       - run:
