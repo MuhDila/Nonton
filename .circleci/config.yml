@@ -10,8 +10,8 @@ jobs:
       - restore_cache:
           key: android-orb-v1-
       - run:
-          name: Accept Android SDK licenses
-          command: yes | sdkmanager --licenses
+          name: Create local.properties
+          command: echo "sdk.dir=$ANDROID_HOME" > local.properties
       - run:
           name: Chmod permissions
           command: sudo chmod +x ./gradlew
