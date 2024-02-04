@@ -11,6 +11,9 @@ jobs:
       - restore_cache:
           key: android-orb-v1-
       - run:
+          name: Accept Android licenses
+          command: yes | sdkmanager --licenses
+      - run:
           name: Create local.properties
           command: echo "sdk.dir=$ANDROID_HOME" > local.properties
       - run:
