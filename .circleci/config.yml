@@ -17,6 +17,9 @@ jobs:
           name: Download Dependencies
           command: ./gradlew dependencies
       - run:
+          name: Create local.properties
+          command: echo "sdk.dir=$ANDROID_HOME" > local.properties
+      - run:
           name: Run Build
           command: ./gradlew build
       - store_test_results:
