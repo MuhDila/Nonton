@@ -1,5 +1,5 @@
 [versions]
-agp = "8.2.1"
+agp = "8.2.2"
 circleimageview = "3.1.0"
 glide = "4.16.0"
 koinAndroid = "3.5.3"
@@ -47,7 +47,7 @@ material = { group = "com.google.android.material", name = "material", version.r
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
-annotation = { group = "androidx.annotation", name = "annotation", version.ref = "annotation" }
+annotation = { group = "androidx.annotation", name = "annotation", version = "1.7.1" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

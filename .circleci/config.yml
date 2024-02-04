@@ -5,6 +5,7 @@ jobs:
   test:
     docker:
       - image: cimg/openjdk:21.0.2
+      - image: cimg/android:2024.01
     steps:
       - checkout
       - restore_cache:
