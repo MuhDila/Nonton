@@ -14,6 +14,9 @@ jobs:
       - restore_cache:
           key: android-orb-v1-
       - run:
+          name: Print Java Home
+          command: echo $JAVA_HOME
+      - run:
           name: Chmod permissions
           command: sudo chmod +x ./gradlew
       - run:
