@@ -11,8 +11,11 @@ jobs:
       - restore_cache:
           key: android-orb-v1-
       - run:
+          name: Install Android SDK
+          command: echo y | sdkmanager --install "build-tools;34.0.0" "platforms;android-34"
+      - run:
           name: Accept Android licenses
-          command: yes | sdkmanager.bat --licenses
+          command: yes | sdkmanager --licenses
       - run:
           name: Create local.properties
           command: echo "sdk.dir=$ANDROID_HOME" > local.properties
