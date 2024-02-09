@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.layoutSearch.imgSetting.setOnClickListener {
-            Toast.makeText(this, "Coming Soon", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@MainActivity, "Coming Soon", Toast.LENGTH_SHORT).show()
         }
 
         binding.layoutSearch.imgFav.setOnClickListener {
@@ -45,13 +45,13 @@ class MainActivity : AppCompatActivity() {
         }
 
         listMovieAdapter.onItemClick = { movie ->
-            Intent(this, DetailActivity::class.java).also {
+            Intent(this@MainActivity, DetailActivity::class.java).also {
                 it.putExtra(DetailActivity.DATA, movie)
                 startActivity(it)
             }
         }
 
-        mainViewModel.getListMovie.observe(this) { listMovie ->
+        mainViewModel.getListMovie.observe(this@MainActivity) { listMovie ->
             handleMovieListResult(listMovie, listMovieAdapter)
         }
 

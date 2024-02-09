@@ -9,6 +9,8 @@ import com.muhdila.core.data.source.remote.network.ApiService
 import com.muhdila.core.utils.AppExecutors
 import com.muhdila.core.data.source.MovieRepository
 import com.muhdila.core.data.source.local.LocalDataSource
+import net.sqlcipher.database.SQLiteDatabase
+import net.sqlcipher.database.SupportFactory
 import okhttp3.OkHttpClient
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
@@ -19,10 +21,17 @@ import java.util.concurrent.TimeUnit
 val databaseModule = module {
     factory { get<MovieDatabase>().movieDao() }
     single {
+
+        // SQLCipher
+        val passphrase: ByteArray = SQLiteDatabase.getBytes("muhdila".toCharArray())
+        val factory = SupportFactory(passphrase)
+
         Room.databaseBuilder(
             androidContext(),
             MovieDatabase::class.java, "UserGithub.db"
-        ).fallbackToDestructiveMigration().build()
+        ).fallbackToDestructiveMigration()
+            .openHelperFactory(factory)
+            .build()
     }
 }
 
