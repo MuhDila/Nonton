@@ -27,7 +27,7 @@ class ListMovieAdapter : RecyclerView.Adapter<ListMovieAdapter.UserGithubViewHol
         fun bind(movie: Movie) {
             with(binding) {
                 Glide.with(itemView.context)
-                    .load("https://image.tmdb.org/t/p/original/" + movie.poster_path)
+                    .load("https://image.tmdb.org/t/p/original/" + movie.posterPath)
                     .transform(RoundedCorners(20))
                     .into(ivPoster)
             }

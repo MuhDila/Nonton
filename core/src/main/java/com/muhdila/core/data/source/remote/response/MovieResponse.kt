@@ -17,15 +17,15 @@ data class MovieResponse (
     val popularity: Float?,
 
     @SerializedName("poster_path")
-    val poster_path: String?,
+    val posterPath: String?,
 
     @SerializedName("backdrop_path")
-    val backdrop_path: String?,
+    val backdropPath: String?,
 
     @SerializedName("vote_average")
-    val vote_average: Float?,
+    val voteAverage: Float?,
 
     @SerializedName("release_date")
-    val release_date: String?,
+    val releaseDate: String?,
 
 )

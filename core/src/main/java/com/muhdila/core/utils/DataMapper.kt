@@ -2,7 +2,6 @@ package com.muhdila.core.utils
 
 import com.muhdila.core.domain.model.Movie
 import com.muhdila.core.data.source.local.entitiy.MovieEntity
-import com.muhdila.core.data.source.remote.response.ListMovieResponse
 import com.muhdila.core.data.source.remote.response.MovieResponse
 
 object DataMapper {
@@ -14,10 +13,10 @@ object DataMapper {
                 title = it.title,
                 overview = it.overview,
                 popularity = it.popularity,
-                poster_path = it.poster_path,
-                backdrop_path = it.backdrop_path,
-                vote_average = it.vote_average,
-                release_date = it.release_date,
+                poster_path = it.posterPath,
+                backdrop_path = it.backdropPath,
+                vote_average = it.voteAverage,
+                release_date = it.releaseDate,
                 isFavorite = false
             )
             userGithubList.add(userGithub)
@@ -32,10 +31,10 @@ object DataMapper {
                 title = it.title,
                 overview = it.overview,
                 popularity = it.popularity,
-                poster_path = it.poster_path,
-                backdrop_path = it.backdrop_path,
-                vote_average = it.vote_average,
-                release_date = it.release_date,
+                posterPath = it.poster_path,
+                backdropPath = it.backdrop_path,
+                voteAverage = it.vote_average,
+                releaseDate = it.release_date,
                 isFavorite = it.isFavorite
             )
         }
@@ -45,10 +44,10 @@ object DataMapper {
         title = input.title,
         overview = input.overview,
         popularity = input.popularity,
-        poster_path = input.poster_path,
-        backdrop_path = input.backdrop_path,
-        vote_average = input.vote_average,
-        release_date = input.release_date,
+        poster_path = input.posterPath,
+        backdrop_path = input.backdropPath,
+        vote_average = input.voteAverage,
+        release_date = input.releaseDate,
         isFavorite = input.isFavorite
     )
 

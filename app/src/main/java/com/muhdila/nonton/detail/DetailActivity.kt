@@ -53,13 +53,13 @@ class DetailActivity : AppCompatActivity() {
         detailListMovie?.let {
             with(binding) {
                 Glide.with(this@DetailActivity)
-                    .load("https://image.tmdb.org/t/p/original/" + detailListMovie.backdrop_path)
+                    .load("https://image.tmdb.org/t/p/original/" + detailListMovie.backdropPath)
                     .transform(RoundedCorners(20))
                     .into(backgroundImage)
 
                 tvTitle.text = detailListMovie.title
-                tvRating.text = "IMDB ${detailListMovie.vote_average.toString()}"
-                tvReleaseDate.text = detailListMovie.release_date
+                tvRating.text = "IMDB ${detailListMovie.voteAverage.toString()}"
+                tvReleaseDate.text = detailListMovie.releaseDate
                 tvPopularity.text = detailListMovie.popularity.toString()
                 tvOverview.text = detailListMovie.overview
 
