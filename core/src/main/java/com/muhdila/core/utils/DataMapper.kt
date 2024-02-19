@@ -13,10 +13,10 @@ object DataMapper {
                 title = it.title,
                 overview = it.overview,
                 popularity = it.popularity,
-                poster_path = it.posterPath,
-                backdrop_path = it.backdropPath,
-                vote_average = it.voteAverage,
-                release_date = it.releaseDate,
+                posterPath = it.posterPath,
+                backdropPath = it.backdropPath,
+                voteAverage = it.voteAverage,
+                releaseDate = it.releaseDate,
                 isFavorite = false
             )
             userGithubList.add(userGithub)
@@ -31,10 +31,10 @@ object DataMapper {
                 title = it.title,
                 overview = it.overview,
                 popularity = it.popularity,
-                posterPath = it.poster_path,
-                backdropPath = it.backdrop_path,
-                voteAverage = it.vote_average,
-                releaseDate = it.release_date,
+                posterPath = it.posterPath,
+                backdropPath = it.backdropPath,
+                voteAverage = it.voteAverage,
+                releaseDate = it.releaseDate,
                 isFavorite = it.isFavorite
             )
         }
@@ -44,10 +44,10 @@ object DataMapper {
         title = input.title,
         overview = input.overview,
         popularity = input.popularity,
-        poster_path = input.posterPath,
-        backdrop_path = input.backdropPath,
-        vote_average = input.voteAverage,
-        release_date = input.releaseDate,
+        posterPath = input.posterPath,
+        backdropPath = input.backdropPath,
+        voteAverage = input.voteAverage,
+        releaseDate = input.releaseDate,
         isFavorite = input.isFavorite
     )
 

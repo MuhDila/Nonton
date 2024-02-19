@@ -66,13 +66,13 @@ class MainActivity : AppCompatActivity() {
     private fun handleMovieListResult(result: Resource<List<Movie>>?, adapter: ListMovieAdapter) {
         if (result != null) {
             when (result) {
-                is Resource.Loading -> binding.progressBar.visibility = View.VISIBLE
+                is Resource.Loading -> binding.progressCircular.visibility = View.VISIBLE
                 is Resource.Success -> {
-                    binding.progressBar.visibility = View.GONE
+                    binding.progressCircular.visibility = View.GONE
                     adapter.setData(result.data)
                 }
                 is Resource.Error -> {
-                    binding.progressBar.visibility = View.GONE
+                    binding.progressCircular.visibility = View.GONE
                     binding.viewError.root.visibility = View.VISIBLE
                     binding.viewError.tvError.text =
                         result.message ?: getString(R.string.something_wrong)

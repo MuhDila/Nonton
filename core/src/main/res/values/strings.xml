@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="image">Poster Image</string>
-    <string name="title">Title</string>
-    <string name="poster">Poster</string>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="poster" tools:keep="@string/poster">Poster</string>
 </resources>

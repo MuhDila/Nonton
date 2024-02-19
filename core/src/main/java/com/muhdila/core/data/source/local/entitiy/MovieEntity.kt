@@ -15,13 +15,13 @@ data class MovieEntity(
 
     var popularity: Float?,
 
-    var poster_path: String?,
+    var posterPath: String?,
 
-    var backdrop_path: String?,
+    var backdropPath: String?,
 
-    var vote_average: Float?,
+    var voteAverage: Float?,
 
-    var release_date: String?,
+    var releaseDate: String?,
 
     var isFavorite: Boolean = false
 

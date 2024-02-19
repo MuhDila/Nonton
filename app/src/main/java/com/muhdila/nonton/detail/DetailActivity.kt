@@ -39,7 +39,7 @@ class DetailActivity : AppCompatActivity() {
             Toast.makeText(this, "Coming Soon", Toast.LENGTH_SHORT).show()
         }
 
-        binding.iconDownload.setOnClickListener {
+        binding.btnDownload.setOnClickListener {
             Toast.makeText(this, "Coming Soon", Toast.LENGTH_SHORT).show()
         }
 
@@ -66,7 +66,7 @@ class DetailActivity : AppCompatActivity() {
                 var favStatus = detailListMovie.isFavorite
                 setStatusFavorite(favStatus)
 
-                iconFavorite.setOnClickListener {
+                btnFavorite.setOnClickListener {
                     favStatus = !favStatus
                     detailViewModel.setFavoriteListMovie(detailListMovie, favStatus)
                     setStatusFavorite(favStatus)
@@ -79,9 +79,9 @@ class DetailActivity : AppCompatActivity() {
 
     private fun setStatusFavorite(statusFav: Boolean) {
         if (statusFav) {
-            binding.iconFavorite.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_fav_filled))
+            binding.btnFavorite.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_fav_filled))
         } else {
-            binding.iconFavorite.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_fav_outline))
+            binding.btnFavorite.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_fav_outline))
         }
     }
 

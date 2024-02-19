@@ -1,21 +1,19 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Nonton</string>
     <string name="something_wrong">Oops.. something went wrong</string>
     <string name="title_favorite">Favorite</string>
-    <string name="search">Search</string>
-    <string name="img_setting">Image Setting</string>
-    <string name="img_fav">Image Favorite</string>
-    <string name="play">Play</string>
-    <string name="download">Download</string>
-    <string name="favorite">Favorite</string>
-    <string name="title_movie">Title Movie</string>
-    <string name="rating_movie">Rating</string>
-    <string name="image_button_favorite">Image Button Favorite</string>
-    <string name="image_poster">Image Poster</string>
-    <string name="image_date">Image Date</string>
-    <string name="release_date">Release Date</string>
-    <string name="popularity">Popularity</string>
-    <string name="overview_movie">Overview Movie</string>
-    <string name="popular_movies">Popular Movies</string>
-    <string name="button_back">Button Back</string>
+    <string name="search" tools:keep="@string/search">Search</string>
+    <string name="img_setting" tools:keep="@string/img_setting">Image Setting</string>
+    <string name="img_fav" tools:keep="@string/img_fav">Image Favorite</string>
+    <string name="play" tools:keep="@string/play">Play</string>
+    <string name="favorite" tools:keep="@string/favorite">Favorite</string>
+    <string name="title_movie" tools:keep="@string/title_movie">Title Movie</string>
+    <string name="rating_movie" tools:keep="@string/rating_movie">Rating</string>
+    <string name="image_button_favorite" tools:keep="@string/image_button_favorite">Image Button Favorite</string>
+    <string name="image_poster" tools:keep="@string/image_poster">Image Poster</string>
+    <string name="image_date" tools:keep="@string/image_date">Image Date</string>
+    <string name="release_date" tools:keep="@string/release_date">Release Date</string>
+    <string name="popularity" tools:keep="@string/popularity">Popularity</string>
+    <string name="overview_movie" tools:keep="@string/overview_movie">Overview Movie</string>
+    <string name="image_back" tools:keep="@string/image_back">Image Back</string>
 </resources>

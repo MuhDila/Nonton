@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="empty">There are no favorite data</string>
-    <string name="favourite">Favorite</string>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="empty" tools:keep="@string/empty">There are no favorite data</string>
 </resources>

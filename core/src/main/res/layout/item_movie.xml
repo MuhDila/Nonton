@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    tools:keep="@layout/item_movie">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:foreground="?android:attr/selectableItemBackground"
@@ -20,11 +20,10 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/iv_poster"
+            android:id="@+id/ivPoster"
             android:layout_width="175dp"
             android:layout_height="250dp"
             android:contentDescription="@string/poster"
-            android:src="@drawable/as"
             android:scaleType="centerCrop" />
     </androidx.cardview.widget.CardView>
 
