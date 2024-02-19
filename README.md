@@ -1,3 +1,3 @@
-[![MuhDila](https://app.circleci.com/pipelines/circleci/PLWmn7Yd5bCzK7gd2FzfDC.svg?style=svg)](https://app.circleci.com/pipelines/circleci/PLWmn7Yd5bCzK7gd2FzfDC)
-# capstone-project
+[![MuhDila](https://circleci.com/gh/MuhDila/Nonton.svg?style=svg)](https://circleci.com/gh/MuhDila/Nonton)
+
 Submission MADE (Menjadi Android Developer Expert) Dicoding
